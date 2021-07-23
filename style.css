@@ -1,6 +1,7 @@
 html {
     background-color: black;
     color: white;
+    font-family: "Orbitron", sans-serif;
 }
 
 .container {
@@ -22,12 +23,21 @@ html {
 
 .display {
     width: 15rem;
-    height: 4.8rem;
-    border-bottom: 2px red solid;
-    line-height: 4.8rem;
-    font-size: 3.75rem;
+    height: 3.4rem;
+    /* border-bottom: 2px red solid; */
+    line-height: 3.4rem;
+    font-size: 2.5rem;
     color: red;
     text-align: right;
+}
+
+.sum-display {
+    height: 1.15rem;
+    width: 15 rem;
+    border-bottom: 1px red solid;
+    font-size: 0.9rem;
+    line-height: 1.15rem;
+    color: yellowgreen;
 }
 
 .buttons {
@@ -36,7 +46,7 @@ html {
     flex-wrap: wrap;
     box-sizing: border-box;
     justify-content: center;
-    margin-top: 5px;
+    margin-top: 6px;
 }
 
 .btn {
@@ -57,4 +67,11 @@ html {
 
 .digits {
     color: red;
+}
+
+.foot-notice {
+    text-align: center;
+    font-size: 0.65rem;
+    margin-top: 50px;
+    color: yellowgreen;
 }

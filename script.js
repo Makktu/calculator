@@ -2,10 +2,10 @@
 
 // * ADD, SUBTRACT, MULTIPLY, DIVIDE
 
-// const addNumbers = (a, b) => a + b;
-// const subtractNumbers = (a, b) => a - b;
-// const multiplyNumbers = (a, b) => a * b;
-// const divideNumbers = (a, b) => a / b;
+const add = (a, b) => a + b;
+const subtract = (a, b) => a - b;
+const multiply = (a, b) => a * b;
+const divide = (a, b) => a / b;
 
 // function opNumbers(a, b, op) {
 //     if (op === "a" || op === "A") {
@@ -33,14 +33,43 @@
 // attach event listeners to all buttons
 
 function buttonClicked() {
-    // this.style.cssText = "background-color: cyan; transition: .3s;";
-    // this.style.cssText = "background-color: black; transition: .5s;";
+    currentBtnPress = this.innerHTML;
+    if (this.classList.contains("num")) {
+        currentNumber += parseInt(currentBtnPress);
+        displayArea.textContent = currentNumber;
+    } else if (currentBtnPress === "C") {
+        displayArea.textContent = "";
+        sumArea.textContent = "";
+        currentNumber = "";
+    } else if (this.classList.contains("operator") && currentNumber !== "") {
+        goFunc = this.id;
+        window[goFunc](sumInProgress, currentNumber);
 
-    displayArea.textContent = this.innerHTML;
+        sumInProgress += currentNumber;
+        currentNumber = "";
+        sumInProgress += currentBtnPress;
+        displayArea.textContent = "";
+        sumArea.textContent = sumInProgress;
+    } else {
+        calcSum(sumInProgress);
+    }
+}
+
+function calcSum(sum) {
+    // parse the sum in progress!
 }
 
 const displayArea = document.querySelector(".display");
 
+const sumArea = document.querySelector(".sum-display");
+
 const allButtons = document.querySelectorAll(".btn");
+
+let currentNumber = "";
+let sumInProgress = "";
+let goFunc;
+let currentBtnPress;
+
+let currentOperator = "";
 
 allButtons.forEach((button) => button.addEventListener("click", buttonClicked));

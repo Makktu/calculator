@@ -2,6 +2,12 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" href="style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+            rel="stylesheet"
+        />
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,27 +17,32 @@
         <div class="container">
             <div class="calculator-container">
                 <div class="display"></div>
+
+                <div class="sum-display"></div>
                 <div class="buttons">
-                    <div class="btn seven">7</div>
-                    <div class="btn eight">8</div>
-                    <div class="btn nine">9</div>
-                    <div class="btn plus">+</div>
-                    <div class="btn four">4</div>
-                    <div class="btn five">5</div>
-                    <div class="btn six">6</div>
-                    <div class="btn minus">-</div>
-                    <div class="btn one">1</div>
-                    <div class="btn two">2</div>
-                    <div class="btn three">3</div>
-                    <div class="btn multiply">*</div>
+                    <div class="num btn seven">7</div>
+                    <div class="num btn eight">8</div>
+                    <div class="num btn nine">9</div>
                     <div class="btn reset">C</div>
+                    <div class="num btn four">4</div>
+                    <div class="num btn five">5</div>
+                    <div class="num btn six">6</div>
+                    <div class="operator btn" id="subtract">-</div>
+                    <div class="num btn one">1</div>
+                    <div class="num btn two">2</div>
+                    <div class="num btn three">3</div>
+                    <div class="operator btn" id="multiply">*</div>
 
-                    <div class="btn zero">0</div>
-                    <div class="btn empty">?</div>
+                    <div class="btn equals">=</div>
+                    <div class="num btn zero">0</div>
+                    <div class="operator btn" id="add">+</div>
 
-                    <div class="btn divide">/</div>
+                    <div class="operator btn" id="divide">/</div>
                 </div>
             </div>
+        </div>
+        <div class="foot-notice">
+            Created by John McNamara<br />Source Code: [link]
         </div>
 
         <script src="script.js"></script>
