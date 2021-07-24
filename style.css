@@ -16,7 +16,7 @@ html {
 .calculator-container {
     margin-top: 10%;
     width: 15rem;
-    height: 23.5rem;
+    height: 27.5rem;
     border: 2px red solid;
     border-radius: 5px;
 }
@@ -46,7 +46,7 @@ html {
     flex-wrap: wrap;
     box-sizing: border-box;
     justify-content: center;
-    margin-top: 6px;
+    margin-top: 3px;
 }
 
 .btn {
@@ -61,8 +61,21 @@ html {
     cursor: pointer;
 }
 
+.equals {
+    width: 7rem;
+}
+
+.delete {
+    font-size: 1.2rem;
+    width: 7rem;
+}
+
+.point {
+    font-size: 3rem;
+}
+
 .btn:hover {
-    background-color: rgb(53, 47, 47);
+    background-color: rgb(65, 55, 122);
 }
 
 .digits {

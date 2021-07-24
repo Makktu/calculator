@@ -2,7 +2,9 @@
 
 // * ADD, SUBTRACT, MULTIPLY, DIVIDE
 
-const add = (a, b) => a + b;
+const add = (a, b) => {
+    a + b;
+};
 const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
 const divide = (a, b) => a / b;
@@ -33,23 +35,29 @@ const divide = (a, b) => a / b;
 // attach event listeners to all buttons
 
 function buttonClicked() {
-    currentBtnPress = this.innerHTML;
     if (this.classList.contains("num")) {
-        currentNumber += parseInt(currentBtnPress);
+        if (!number1) {
+            number1 = this.innerHTML;
+            currentNumber += parseInt(number1);
+        } else {
+            number2 = this.innerHTML;
+            currentNumber += parseInt(number2);
+            console.log("2", number2, currentNumber);
+        }
         displayArea.textContent = currentNumber;
-    } else if (currentBtnPress === "C") {
+    } else if (this.innerHTML === "C") {
         displayArea.textContent = "";
         sumArea.textContent = "";
         currentNumber = "";
-    } else if (this.classList.contains("operator") && currentNumber !== "") {
-        goFunc = this.id;
-        window[goFunc](sumInProgress, currentNumber);
-
-        sumInProgress += currentNumber;
-        currentNumber = "";
-        sumInProgress += currentBtnPress;
-        displayArea.textContent = "";
-        sumArea.textContent = sumInProgress;
+        sumInProgress = "";
+    } else if (this.innerHTML === "=") {
+        console.log("EQUALS!");
+    } else if (this.classList.contains("operator")) {
+        if (this.innerHTML === "+") {
+            if (number1) {
+                sumArea.textContent = number1 + number2;
+            }
+        }
     } else {
         calcSum(sumInProgress);
     }
@@ -65,10 +73,16 @@ const sumArea = document.querySelector(".sum-display");
 
 const allButtons = document.querySelectorAll(".btn");
 
-let currentNumber = "";
+let currentNumber;
 let sumInProgress = "";
 let goFunc;
 let currentBtnPress;
+let lastSum = "";
+
+let action = null;
+
+let number1 = null;
+let number2 = null;
 
 let currentOperator = "";
 
