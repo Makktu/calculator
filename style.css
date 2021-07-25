@@ -26,7 +26,7 @@ html {
     height: 3.4rem;
     /* border-bottom: 2px red solid; */
     line-height: 3.4rem;
-    font-size: 2.5rem;
+    font-size: 2.25rem;
     color: red;
     text-align: right;
 }
@@ -35,9 +35,10 @@ html {
     height: 1.15rem;
     width: 15 rem;
     border-bottom: 1px red solid;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     line-height: 1.15rem;
-    color: yellowgreen;
+    color: rgb(161, 78, 78);
+    text-align: right;
 }
 
 .buttons {
