@@ -76,7 +76,16 @@ html {
 }
 
 .btn:hover {
-    background-color: rgb(65, 55, 122);
+    background-color: darkblue;
+    border: 1px white solid;
+}
+
+.delete:hover {
+    background-color: red;
+}
+
+.reset:hover {
+    background-color: seagreen;
 }
 
 .digits {
