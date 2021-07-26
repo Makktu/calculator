@@ -5,7 +5,7 @@ function buttonClicked() {
     currentBtnPress = this.innerHTML;
     // if numerical, add number to display number
     if (this.classList.contains("num")) {
-        if (displayNum.length < 8) {
+        if (displayNum.length < 9) {
             displayNum += currentBtnPress;
             displayArea.textContent = displayNum;
         }
@@ -20,14 +20,16 @@ function buttonClicked() {
     }
 
     if (currentBtnPress === "+") {
-        // lastOp = "add";
+        lastOp = "add";
 
         if (!number1) {
             number1 = parseFloat(displayNum);
         } else {
             number1 += parseFloat(displayNum);
         }
-        sumArea.textContent = number1 + "+";
+
+        sumArea.textContent = number2 + "+";
+
         displayArea.textContent = "0";
         displayNum = "";
     }
@@ -45,7 +47,6 @@ function buttonClicked() {
     }
 
     if (currentBtnPress === "=" && number1) {
-        // lastOp = "equals";
         if (lastOp === "add") number2 = number1 + parseFloat(displayNum);
         if (lastOp === "minus") number2 = number1 - parseFloat(displayNum);
         if (lastOp === "mult") number2 = number1 * parseFloat(displayNum);
