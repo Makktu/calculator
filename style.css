@@ -56,7 +56,7 @@ html {
 .btn {
     width: 3.25rem;
     height: 4rem;
-    border: 1px blue solid;
+    border: 1px rgb(0, 195, 255) solid;
     border-radius: 7px;
     margin: 3px;
     text-align: center;
