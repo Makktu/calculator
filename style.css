@@ -109,9 +109,10 @@ html {
     color: red;
 } */
 
-.foot-notice {
+.foot-notice,
+a {
     text-align: center;
-    font-size: 0.65rem;
+    font-size: 0.75rem;
     margin-top: 50px;
     color: yellowgreen;
 }
