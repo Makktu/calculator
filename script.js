@@ -2,7 +2,7 @@
 
 const numberClicked = () => {
     // if 'displayNum' is less than the screen size, we add the entry to the number visible; if not less, nothing happens.
-    if (number1.length < 8) {
+    if (number1.length < 9) {
         number1 += currentBtnPress;
         displayArea.textContent = number1;
     }
@@ -32,7 +32,7 @@ const addClicked = () => {
         ? (number2 = parseFloat(number2) + parseFloat(number1))
         : (number2 = parseFloat(number1));
 
-    displayArea.textContent = parseFloat(number2);
+    displayThis(number2);
 
     printSumstring(sumString);
     lastOp = "add";
@@ -56,7 +56,7 @@ const subtractClicked = () => {
         ? (number2 = parseFloat(number2) - parseFloat(number1))
         : (number2 = parseFloat(number1));
 
-    displayArea.textContent = parseFloat(number2);
+    displayThis(number2);
 
     printSumstring(sumString);
     lastOp = "subtract";
@@ -80,7 +80,7 @@ const multiplyClicked = () => {
         ? (number2 = parseFloat(number2) * parseFloat(number1))
         : (number2 = parseFloat(number1));
 
-    displayArea.textContent = parseFloat(number2);
+    displayThis(number2);
 
     printSumstring(sumString);
     lastOp = "multiply";
@@ -104,7 +104,7 @@ const divideClicked = () => {
         ? (number2 = parseFloat(number2) / parseFloat(number1))
         : (number2 = parseFloat(number1));
 
-    displayArea.textContent = parseFloat(number2);
+    displayThis(number2);
 
     printSumstring(sumString);
     lastOp = "divide";
@@ -122,7 +122,8 @@ const equalsClicked = () => {
             number2 = parseFloat(number2) * parseFloat(number1);
         if (lastOp === "divide")
             number2 = parseFloat(number2) / parseFloat(number1);
-        displayArea.textContent = parseFloat(number2);
+
+        displayThis(number2);
         sumString += parseFloat(number1) + " = " + parseFloat(number2);
 
         printSumstring(sumString);
@@ -138,21 +139,44 @@ const c_clicked = () => {
     number2 = "";
     lastOp = "";
     sumString = "";
+    displayArea.style.cssText = "font-size: 2rem;";
+
     // number2 = 0;
     // lastOp = "";
 };
 
 const printSumstring = (sumString) => {
-    if (sumString.length > 22) {
-        sumArea.style.cssText = "font-size: .75rem;";
-    }
-
-    if (sumString.length > 35) {
+    if (sumString.length > 26) {
         sumString =
             "..." +
-            sumString.substring(sumString.length - 35, sumString.length);
+            sumString.substring(sumString.length - 26, sumString.length);
+        sumArea.style.cssText = "font-size: .75rem;";
+
+        sumArea.textContent = sumString;
+        return;
     }
-    sumArea.textContent = sumString;
+
+    if (sumString.length > 15) {
+        sumArea.style.cssText = "font-size: .75rem;";
+        sumArea.textContent = sumString;
+        return;
+    }
+
+    if (sumString.length < 16) {
+        sumArea.textContent = sumString;
+        return;
+    }
+};
+
+const displayThis = (number2) => {
+    let whatNumLen = number2.toString();
+    if (whatNumLen.length > 9) {
+        displayArea.style.cssText = "font-size: 1.5rem;";
+        displayArea.textContent = parseFloat(number2.toFixed(2));
+    } else {
+        displayArea.style.cssText = "font-size: 2rem;";
+        displayArea.textContent = parseFloat(number2.toFixed(2));
+    }
 };
 
 function buttonClicked() {
@@ -186,3 +210,4 @@ let number2 = "";
 let lastOp = "";
 let sumString = "";
 let operator;
+let truNum;

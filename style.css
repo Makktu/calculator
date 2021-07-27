@@ -17,18 +17,20 @@ html {
     margin-top: 10%;
     width: 15rem;
     height: 27.5rem;
-    border: 2px red solid;
-    border-radius: 5px;
+    border: 5px rgb(134, 105, 105) solid;
+    border-radius: 10px;
+    /* background-color: rgb(17, 5, 27); */
 }
 
 .display {
     width: 15rem;
     height: 3.4rem;
     /* border-bottom: 2px red solid; */
-    line-height: 3.4rem;
-    font-size: 2.25rem;
+    /* line-height: 3.4rem; */
+    font-size: 2rem;
     color: red;
     text-align: right;
+    overflow-wrap: break-word;
 }
 
 .sum-display {
@@ -39,6 +41,7 @@ html {
     line-height: 1.15rem;
     color: rgb(161, 78, 78);
     text-align: right;
+    background-color: rgba(46, 38, 38, 0.637);
 }
 
 .buttons {
@@ -60,41 +63,60 @@ html {
     line-height: 4rem;
     font-size: 1.75rem;
     cursor: pointer;
+    transition: 0.15s;
 }
 
 .equals {
     width: 7rem;
+    background-color: rgb(58, 131, 51);
 }
 
 .delete {
     font-size: 1.2rem;
     width: 7rem;
+    background-color: rgb(107, 9, 16);
 }
 
 .point {
     font-size: 3rem;
 }
 
+.num {
+    background-color: rgb(18, 18, 216);
+}
+
 .btn:hover {
-    background-color: darkblue;
+    /* background-color: darkblue; */
     border: 1px white solid;
+    transition: 0.35s;
 }
 
 .delete:hover {
     background-color: red;
+    transition: 0.25s;
+}
+
+.reset {
+    background-color: rgb(107, 9, 16);
 }
 
 .reset:hover {
-    background-color: seagreen;
+    background-color: red;
+    transition: 0.25s;
 }
 
-.digits {
+/* .digits {
     color: red;
-}
+} */
 
 .foot-notice {
     text-align: center;
     font-size: 0.65rem;
     margin-top: 50px;
     color: yellowgreen;
+}
+
+.operator {
+    background-color: rgb(109, 133, 60);
+    color: black;
 }
