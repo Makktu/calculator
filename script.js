@@ -194,7 +194,8 @@ function buttonClicked() {
         lastOp !== "add" &&
         lastOp !== "subtract" &&
         lastOp !== "multiply" &&
-        lastOp !== "divide"
+        lastOp !== "divide" &&
+        number1 !== ""
     )
         addClicked();
     if (
@@ -202,7 +203,8 @@ function buttonClicked() {
         lastOp !== "add" &&
         lastOp !== "subtract" &&
         lastOp !== "multiply" &&
-        lastOp !== "divide"
+        lastOp !== "divide" &&
+        number1 !== ""
     )
         subtractClicked();
     if (
@@ -210,7 +212,8 @@ function buttonClicked() {
         lastOp !== "add" &&
         lastOp !== "subtract" &&
         lastOp !== "multiply" &&
-        lastOp !== "divide"
+        lastOp !== "divide" &&
+        number1 !== ""
     )
         multiplyClicked();
     if (
@@ -218,7 +221,8 @@ function buttonClicked() {
         lastOp !== "add" &&
         lastOp !== "subtract" &&
         lastOp !== "multiply" &&
-        lastOp !== "divide"
+        lastOp !== "divide" &&
+        number1 !== ""
     )
         divideClicked();
     if (currentBtnPress === "=" && number2) equalsClicked();
