@@ -87,7 +87,7 @@ html {
 
 .btn:hover {
     /* background-color: darkblue; */
-    border: 1px white solid;
+    border: 1px black solid;
     transition: 0.35s;
 }
 
