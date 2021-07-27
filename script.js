@@ -18,13 +18,16 @@ const deleteClicked = () => {
 const addClicked = () => {
     if (lastOp !== "equals") {
         sumString += parseFloat(number1) + " + ";
+        lastOp = "add";
     } else if (lastOp === "equals") {
         sumString = parseFloat(number1) + " + ";
         printSumstring(sumString);
         displayArea.textContent = number1;
         lastOp = "add";
+        number1 = "";
         return;
     }
+
     number2
         ? (number2 = parseFloat(number2) + parseFloat(number1))
         : (number2 = parseFloat(number1));
@@ -37,22 +40,90 @@ const addClicked = () => {
 };
 
 const subtractClicked = () => {
-    //stuff
+    if (lastOp !== "equals") {
+        sumString += parseFloat(number1) + " - ";
+        lastOp = "subtract";
+        printSumstring(sumString);
+    } else if (lastOp === "equals") {
+        sumString = parseFloat(number1) + " - ";
+        printSumstring(sumString);
+        displayArea.textContent = number1;
+        lastOp = "subtract";
+        number1 = "";
+        return;
+    }
+    number2
+        ? (number2 = parseFloat(number2) - parseFloat(number1))
+        : (number2 = parseFloat(number1));
+
+    displayArea.textContent = parseFloat(number2);
+
+    printSumstring(sumString);
+    lastOp = "subtract";
+    number1 = "";
 };
 
 const multiplyClicked = () => {
-    // stuff
+    if (lastOp !== "equals") {
+        sumString += parseFloat(number1) + " * ";
+        lastOp = "multiply";
+        printSumstring(sumString);
+    } else if (lastOp === "equals") {
+        sumString = parseFloat(number1) + " * ";
+        printSumstring(sumString);
+        displayArea.textContent = number1;
+        lastOp = "multiply";
+        number1 = "";
+        return;
+    }
+    number2
+        ? (number2 = parseFloat(number2) * parseFloat(number1))
+        : (number2 = parseFloat(number1));
+
+    displayArea.textContent = parseFloat(number2);
+
+    printSumstring(sumString);
+    lastOp = "multiply";
+    number1 = "";
 };
 
 const divideClicked = () => {
-    //stuff
+    if (lastOp !== "equals") {
+        sumString += parseFloat(number1) + " ÷ ";
+        lastOp = "divide";
+        printSumstring(sumString);
+    } else if (lastOp === "equals") {
+        sumString = parseFloat(number1) + " ÷ ";
+        printSumstring(sumString);
+        displayArea.textContent = number1;
+        lastOp = "divide";
+        number1 = "";
+        return;
+    }
+    number2
+        ? (number2 = parseFloat(number2) / parseFloat(number1))
+        : (number2 = parseFloat(number1));
+
+    displayArea.textContent = parseFloat(number2);
+
+    printSumstring(sumString);
+    lastOp = "divide";
+    number1 = "";
 };
 
 const equalsClicked = () => {
     if (number2) {
-        sumString += parseFloat(number1) + " = ";
-        number2 = parseFloat(number2) + parseFloat(number1);
+        // sumString += parseFloat(number1) + " = ";
+        if (lastOp === "add")
+            number2 = parseFloat(number2) + parseFloat(number1);
+        if (lastOp === "subtract")
+            number2 = parseFloat(number2) - parseFloat(number1);
+        if (lastOp === "multiply")
+            number2 = parseFloat(number2) * parseFloat(number1);
+        if (lastOp === "divide")
+            number2 = parseFloat(number2) / parseFloat(number1);
         displayArea.textContent = parseFloat(number2);
+        sumString += parseFloat(number1) + " = " + parseFloat(number2);
 
         printSumstring(sumString);
         lastOp = "equals";
@@ -86,7 +157,7 @@ const printSumstring = (sumString) => {
 
 function buttonClicked() {
     currentBtnPress = this.innerHTML;
-    // console.log(currentBtnPress, numberSum, displayNum);
+    operator = this.id;
     if (this.classList.contains("num")) numberClicked();
     if (currentBtnPress === "DEL") deleteClicked();
     if (currentBtnPress === "C") c_clicked();
@@ -94,7 +165,7 @@ function buttonClicked() {
     if (currentBtnPress === "-") subtractClicked();
     if (currentBtnPress === "*") multiplyClicked();
     if (this.classList.contains("divide")) divideClicked();
-    if (currentBtnPress === "=" && number1) equalsClicked();
+    if (currentBtnPress === "=" && number2) equalsClicked();
 }
 
 // * define the main display area – where the user entry will appear, and give it a default display of '0'
@@ -112,6 +183,6 @@ allButtons.forEach((button) => button.addEventListener("click", buttonClicked));
 let currentBtnPress;
 let number1 = ""; // this will be the next number – the live number
 let number2 = "";
-// let displayNum = "";
 let lastOp = "";
 let sumString = "";
+let operator;
