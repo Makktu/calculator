@@ -198,15 +198,22 @@ function buttonClicked() {
         number1 !== ""
     )
         addClicked();
-    if (
-        currentBtnPress === "-" &&
-        lastOp !== "add" &&
-        lastOp !== "subtract" &&
-        lastOp !== "multiply" &&
-        lastOp !== "divide" &&
-        number1 !== ""
-    )
-        subtractClicked();
+
+    if (currentBtnPress === "-") {
+        if (number1 === "") {
+            number1 += "-";
+            displayArea.textContent = number1;
+        } else {
+            subtractClicked();
+        }
+    }
+    // &&
+    // lastOp !== "add" &&
+    // lastOp !== "subtract" &&
+    // lastOp !== "multiply" &&
+    // lastOp !== "divide" &&
+    // number1 !== ""
+
     if (
         currentBtnPress === "*" &&
         lastOp !== "add" &&
