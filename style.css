@@ -72,8 +72,8 @@ html {
 }
 
 .delete {
-    font-size: 1.2rem;
-    width: 7rem;
+    font-size: 1rem;
+    /* width: 7rem; */
     background-color: rgb(107, 9, 16);
 }
 
