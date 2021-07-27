@@ -17,7 +17,7 @@ html {
     margin-top: 10%;
     width: 15rem;
     height: 27.5rem;
-    border: 5px rgb(134, 105, 105) solid;
+    border: 5px yellowgreen solid;
     border-radius: 10px;
     /* background-color: rgb(17, 5, 27); */
 }
@@ -36,10 +36,10 @@ html {
 .sum-display {
     height: 1.15rem;
     width: 15 rem;
-    border-bottom: 1px red solid;
+    border-bottom: 1px #05ffa6 solid;
     font-size: 1.1rem;
     line-height: 1.15rem;
-    color: rgb(161, 78, 78);
+    color: rgb(165, 137, 137);
     text-align: right;
     background-color: rgba(46, 38, 38, 0.637);
 }

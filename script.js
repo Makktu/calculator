@@ -5,6 +5,7 @@ const numberClicked = () => {
     if (number1.length < 9) {
         number1 += currentBtnPress;
         displayArea.textContent = number1;
+        // lastOp = "num";
     }
 };
 
@@ -112,8 +113,8 @@ const divideClicked = () => {
 };
 
 const equalsClicked = () => {
+    if (lastOp === "equals") return;
     if (number2) {
-        // sumString += parseFloat(number1) + " = ";
         if (lastOp === "add")
             number2 = parseFloat(number2) + parseFloat(number1);
         if (lastOp === "subtract")
@@ -127,6 +128,9 @@ const equalsClicked = () => {
         sumString += parseFloat(number1) + " = " + parseFloat(number2);
 
         printSumstring(sumString);
+
+        // lastButOneOp = lastOp;
+
         lastOp = "equals";
         number1 = number2;
     }
@@ -185,10 +189,38 @@ function buttonClicked() {
     if (this.classList.contains("num")) numberClicked();
     if (currentBtnPress === "DEL") deleteClicked();
     if (currentBtnPress === "C") c_clicked();
-    if (currentBtnPress === "+") addClicked();
-    if (currentBtnPress === "-") subtractClicked();
-    if (currentBtnPress === "*") multiplyClicked();
-    if (this.classList.contains("divide")) divideClicked();
+    if (
+        currentBtnPress === "+" &&
+        lastOp !== "add" &&
+        lastOp !== "subtract" &&
+        lastOp !== "multiply" &&
+        lastOp !== "divide"
+    )
+        addClicked();
+    if (
+        currentBtnPress === "-" &&
+        lastOp !== "add" &&
+        lastOp !== "subtract" &&
+        lastOp !== "multiply" &&
+        lastOp !== "divide"
+    )
+        subtractClicked();
+    if (
+        currentBtnPress === "*" &&
+        lastOp !== "add" &&
+        lastOp !== "subtract" &&
+        lastOp !== "multiply" &&
+        lastOp !== "divide"
+    )
+        multiplyClicked();
+    if (
+        this.classList.contains("divide") &&
+        lastOp !== "add" &&
+        lastOp !== "subtract" &&
+        lastOp !== "multiply" &&
+        lastOp !== "divide"
+    )
+        divideClicked();
     if (currentBtnPress === "=" && number2) equalsClicked();
 }
 
