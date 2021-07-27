@@ -189,20 +189,27 @@ function buttonClicked() {
     if (this.classList.contains("num")) numberClicked();
     if (currentBtnPress === "DEL") deleteClicked();
     if (currentBtnPress === "C") c_clicked();
-    if (
-        currentBtnPress === "+" &&
-        lastOp !== "add" &&
-        lastOp !== "subtract" &&
-        lastOp !== "multiply" &&
-        lastOp !== "divide" &&
-        number1 !== ""
-    )
-        addClicked();
+    if (currentBtnPress === "+") {
+        if (number1 === "") {
+            return;
+        } else addClicked();
+    }
+    // if (
+    //     currentBtnPress === "+" &&
+    //     lastOp !== "add" &&
+    //     lastOp !== "subtract" &&
+    //     lastOp !== "multiply" &&
+    //     lastOp !== "divide" &&
+    //     number1 !== ""
+    // )
+    //     addClicked();
 
     if (currentBtnPress === "-") {
         if (number1 === "") {
             number1 += "-";
             displayArea.textContent = number1;
+        } else if (number1 === "-") {
+            return;
         } else {
             subtractClicked();
         }
