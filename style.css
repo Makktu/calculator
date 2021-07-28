@@ -16,7 +16,7 @@ html {
 .calculator-container {
     margin-top: 10%;
     width: 15rem;
-    height: 27rem;
+    height: 27.25rem;
     border: 5px rgb(0, 195, 255) solid;
     border-radius: 10px;
     /* background-color: rgb(17, 5, 27); */
@@ -50,15 +50,15 @@ html {
     flex-wrap: wrap;
     box-sizing: border-box;
     justify-content: center;
-    margin-top: 1px;
+    margin-top: 2px;
 }
 
 .btn {
-    width: 3.425rem;
-    height: 4.2rem;
+    width: 3.3rem;
+    height: 4.09rem;
     border: 1px rgb(0, 195, 255) solid;
     border-radius: 7px;
-    margin: 1px;
+    margin: 2px;
     text-align: center;
     line-height: 4rem;
     font-size: 1.75rem;
