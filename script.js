@@ -17,8 +17,21 @@ const deleteClicked = () => {
 };
 
 const addClicked = () => {
-    if ((lastOp = "subtract")) {
-        equalsClicked();
+    if (lastOp === "subtract") {
+        console.log("making it work?");
+        sumString += parseFloat(number1) + " + ";
+        lastOp = "subtract";
+        printSumstring(sumString);
+        number2
+            ? (number2 = parseFloat(number2) - parseFloat(number1))
+            : (number2 = parseFloat(number1));
+
+        displayThis(number2);
+
+        printSumstring(sumString);
+        lastOp = "subtract";
+        number1 = "";
+        return;
     }
 
     if (lastOp !== "equals") {
@@ -191,8 +204,14 @@ function plusMinus() {
     if (number1 === "") {
         return;
     } else {
-        number1 = "-" + number1;
-        displayArea.textContent = number1;
+        if (number1.startsWith("-")) {
+            number1 = number1.substring(1);
+            console.log(number1);
+            displayArea.textContent = number1;
+        } else {
+            number1 = "-" + number1;
+            displayArea.textContent = number1;
+        }
     }
 }
 
