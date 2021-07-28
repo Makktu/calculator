@@ -1,7 +1,6 @@
 "use strict";
 
 const numberClicked = () => {
-    // if 'displayNum' is less than the screen size, we add the entry to the number visible; if not less, nothing happens.
     if (number1.length < 9) {
         number1 += currentBtnPress;
         displayArea.textContent = number1;
