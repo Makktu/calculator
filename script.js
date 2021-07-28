@@ -3,14 +3,32 @@
 const numberClicked = () => {
     //stuff
     console.log(currentBtnPress);
+    number1 += currentBtnPress;
+    if (number1.length > 54) return; // refuse more input if screen full
+    if (number1.length > 9) {
+        // change screen font size if input number grows too large
+        displayArea.style.fontSize = "1rem";
+    }
+    displayArea.textContent = number1;
 };
 
 const deleteClicked = () => {
     //stuff
 };
 
-const addClicked = () => {
-    //stuff
+const addClicked = (a, b) => {
+    if (number2) {
+        displayResult = parseFloat(number1) + parseFloat(number2);
+        displayArea.textContent = displayResult;
+        sumArea.textContent = displayResult;
+        number1 = ""; // leaving the sum always stored in number2
+    } else {
+        sumArea.textContent = number1;
+        displayArea.textContent = "+";
+        // if (number2) return a + b;
+        number2 = number1;
+        number1 = "";
+    }
 };
 
 const subtractClicked = () => {
@@ -30,11 +48,21 @@ const equalsClicked = () => {
 };
 
 const c_clicked = () => {
-    //stuff
+    displayArea.textContent = "";
+    sumArea.textContent = "";
+    currentBtnPress = "";
+    number1 = "";
+    number2 = "";
+    lastOp = "";
+    sumString = "";
+    displayResult = "";
 };
 
 const printSumstring = (sumString) => {
-    //stuff
+    if (sumString.length > 25) {
+        sumArea.style.fontSize = ".75rem";
+    }
+    sumArea.textContent = sumString;
 };
 
 const displayThis = (number2) => {
@@ -89,9 +117,9 @@ const allButtons = document.querySelectorAll(".btn");
 allButtons.forEach((button) => button.addEventListener("click", buttonClicked));
 
 let currentBtnPress;
-let number1 = null;
-let number2 = null;
-let lastOp = null;
-let sumString = null;
+let number1 = "";
+let number2 = "";
+let lastOp = "";
+let sumString = "";
+let displayResult;
 // let operator = null;
-let truNum = null;

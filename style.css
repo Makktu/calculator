@@ -69,13 +69,13 @@ html {
 .equals {
     width: 7rem;
     font-size: 2.5rem;
-    background-color: rgb(49, 155, 23);
 }
 
 .delete {
-    font-size: 1rem;
+    font-size: 1.2rem;
     /* width: 7rem; */
-    background-color: rgb(21, 44, 160);
+    background-color: rgb(26, 92, 85);
+    font-weight: bold;
 }
 
 .point {
@@ -86,9 +86,13 @@ html {
     background-color: rgb(31, 22, 151);
 }
 
+.num:hover {
+    background-color: rgb(27, 139, 16);
+}
+
 .btn:hover {
     /* background-color: darkblue; */
-    border: 1px white solid;
+    border: 1px black solid;
     transition: 0.35s;
 }
 
@@ -98,7 +102,8 @@ html {
 }
 
 .reset {
-    background-color: rgb(86, 94, 15);
+    background-color: rgb(26, 92, 85);
+    font-weight: bold;
 }
 
 .reset:hover {
@@ -119,14 +124,16 @@ a {
 }
 
 .operator {
-    background-color: rgb(90, 149, 197);
-    color: black;
+    background-color: rgb(42, 69, 92);
+    /* color: black; */
 }
 
 .plus-minus {
-    background-color: rgb(42, 121, 124);
+    background-color: rgb(26, 92, 85);
 }
 
 .plus-minus:hover {
     background-color: whitesmoke;
+    color: black;
+    transition: 0.5s;
 }
