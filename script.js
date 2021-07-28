@@ -17,6 +17,10 @@ const deleteClicked = () => {
 };
 
 const addClicked = () => {
+    if ((lastOp = "subtract")) {
+        equalsClicked();
+    }
+
     if (lastOp !== "equals") {
         sumString += parseFloat(number1) + " + ";
         lastOp = "add";
