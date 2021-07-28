@@ -183,62 +183,47 @@ const displayThis = (number2) => {
     }
 };
 
+function plusMinus() {
+    if (number1 === "") {
+        return;
+    } else {
+        number1 = "-" + number1;
+        displayArea.textContent = number1;
+    }
+}
+
 function buttonClicked() {
     currentBtnPress = this.innerHTML;
     operator = this.id;
     if (this.classList.contains("num")) numberClicked();
+    if (this.classList.contains("plus-minus")) plusMinus();
     if (currentBtnPress === "DEL") deleteClicked();
     if (currentBtnPress === "C") c_clicked();
+
     if (currentBtnPress === "+") {
         if (number1 === "") {
             return;
         } else addClicked();
     }
-    // if (
-    //     currentBtnPress === "+" &&
-    //     lastOp !== "add" &&
-    //     lastOp !== "subtract" &&
-    //     lastOp !== "multiply" &&
-    //     lastOp !== "divide" &&
-    //     number1 !== ""
-    // )
-    //     addClicked();
 
     if (currentBtnPress === "-") {
         if (number1 === "") {
-            number1 += "-";
-            displayArea.textContent = number1;
-        } else if (number1 === "-") {
             return;
-        } else {
-            subtractClicked();
-        }
+        } else subtractClicked();
     }
-    // &&
-    // lastOp !== "add" &&
-    // lastOp !== "subtract" &&
-    // lastOp !== "multiply" &&
-    // lastOp !== "divide" &&
-    // number1 !== ""
 
-    if (
-        currentBtnPress === "*" &&
-        lastOp !== "add" &&
-        lastOp !== "subtract" &&
-        lastOp !== "multiply" &&
-        lastOp !== "divide" &&
-        number1 !== ""
-    )
-        multiplyClicked();
-    if (
-        this.classList.contains("divide") &&
-        lastOp !== "add" &&
-        lastOp !== "subtract" &&
-        lastOp !== "multiply" &&
-        lastOp !== "divide" &&
-        number1 !== ""
-    )
-        divideClicked();
+    if (currentBtnPress === "*") {
+        if (number1 === "") {
+            return;
+        } else multiplyClicked();
+    }
+
+    if (this.classList.contains("divide")) {
+        if (number1 === "") {
+            return;
+        } else divideClicked();
+    }
+
     if (currentBtnPress === "=" && number2) equalsClicked();
 }
 
