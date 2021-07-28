@@ -5,7 +5,6 @@ const numberClicked = () => {
     if (number1.length < 9) {
         number1 += currentBtnPress;
         displayArea.textContent = number1;
-        // lastOp = "num";
     }
 };
 
@@ -17,10 +16,6 @@ const deleteClicked = () => {
 };
 
 const addClicked = () => {
-    if ((lastOp = "subtract")) {
-        equalsClicked();
-    }
-
     if (lastOp !== "equals") {
         sumString += parseFloat(number1) + " + ";
         lastOp = "add";
@@ -188,12 +183,20 @@ const displayThis = (number2) => {
 };
 
 function plusMinus() {
-    if (number1 === "") {
-        return;
-    } else {
+    if (typeof number1 === "number") {
+        number1 = number1.toString();
+        resetNum = true;
+    }
+    if (number1.charAt(0) === "-") {
+        number1 = number1.slice(1);
+        displayArea.textContent = number1;
+    } else if (number1 || number1 === 0) {
         number1 = "-" + number1;
         displayArea.textContent = number1;
     }
+
+    if (resetNum === true) number1 = parseFloat(number1);
+    return;
 }
 
 function buttonClicked() {
@@ -250,3 +253,4 @@ let lastOp = "";
 let sumString = "";
 let operator;
 let truNum;
+let resetNum = false;
