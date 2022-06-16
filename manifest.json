@@ -8,8 +8,8 @@
             "type": "image/png"
         }
     ],
-    "start_url": "./calculator/index.html",
-    "background_color": "#e05a47",
-    "theme_color": "#e05a47",
+    "start_url": "./index.html",
+    "background_color": "#000000",
+    "theme_color": "#000000",
     "display": "fullscreen"
 }
