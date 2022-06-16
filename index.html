@@ -1,7 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" href="style.css" />
+        <link rel="manifest" href="./manifest.json" />
+        <style>
+            html {
+                background-color: black;
+                color: white;
+                font-family: "Orbitron", sans-serif;
+            }
+
+            .container {
+                height: 100%;
+                width: 100%;
+                background-color: black;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .calculator-container {
+                margin-top: 10%;
+                width: 15rem;
+                height: 28rem;
+                border: 5px rgb(0, 4, 255) solid;
+                border-radius: 10px;
+                /* background-color: rgb(17, 5, 27); */
+            }
+
+            .display {
+                width: 15rem;
+                height: 3.4rem;
+                /* border-bottom: 2px red solid; */
+                /* line-height: 3.4rem; */
+                font-size: 2rem;
+                color: red;
+                text-align: right;
+                overflow-wrap: break-word;
+            }
+
+            .sum-display {
+                height: 1.15rem;
+                width: 15 rem;
+                border-bottom: 1px rgb(0, 195, 255) solid;
+                font-size: 1.1rem;
+                line-height: 1.15rem;
+                color: rgb(165, 137, 137);
+                text-align: right;
+                background-color: rgba(46, 38, 38, 0.637);
+            }
+
+            .buttons {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                box-sizing: border-box;
+                justify-content: center;
+                margin-top: 2px;
+            }
+
+            .btn {
+                width: 3.3rem;
+                height: 4.09rem;
+                border: 1px rgb(0, 195, 255) solid;
+                border-radius: 7px;
+                margin: 2px;
+                text-align: center;
+                line-height: 4rem;
+                font-size: 1.75rem;
+                cursor: pointer;
+                transition: 0.15s;
+            }
+
+            .equals {
+                width: 7rem;
+                font-size: 2.5rem;
+            }
+
+            .delete {
+                font-size: 1.2rem;
+                /* width: 7rem; */
+                background-color: rgb(26, 92, 85);
+                font-weight: bold;
+            }
+
+            .point {
+                font-size: 4rem;
+            }
+
+            .num {
+                background-color: rgb(31, 22, 151);
+            }
+
+            .num:hover {
+                background-color: rgb(27, 139, 16);
+            }
+
+            .btn:hover {
+                /* background-color: darkblue; */
+                border: 1px black solid;
+                transition: 0.35s;
+            }
+
+            .delete:hover {
+                background-color: red;
+                transition: 0.25s;
+            }
+
+            .reset {
+                background-color: rgb(26, 92, 85);
+                font-weight: bold;
+            }
+
+            .reset:hover {
+                background-color: red;
+                transition: 0.25s;
+            }
+
+            /* .digits {
+    color: red;
+} */
+
+            .foot-notice,
+            a {
+                text-align: center;
+                font-size: 0.75rem;
+                margin-top: 50px;
+                color: yellowgreen;
+            }
+
+            .operator {
+                background-color: rgb(42, 69, 92);
+                /* color: black; */
+            }
+
+            .plus-minus {
+                background-color: rgb(26, 92, 85);
+            }
+
+            .plus-minus:hover {
+                background-color: whitesmoke;
+                color: black;
+                transition: 0.5s;
+            }
+        </style>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link
@@ -11,6 +152,32 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script>
+            if ("serviceWorker" in navigator) {
+                window.addEventListener("load", function () {
+                    navigator.serviceWorker
+                        .register("service-worker.js")
+                        .then(
+                            function (registration) {
+                                // Registration was successful
+                                console.log("Registered!");
+                            },
+                            function (err) {
+                                // registration failed :(
+                                console.log(
+                                    "ServiceWorker registration failed: ",
+                                    err
+                                );
+                            }
+                        )
+                        .catch(function (err) {
+                            console.log(err);
+                        });
+                });
+            } else {
+                console.log("service worker is not supported");
+            }
+        </script>
         <title>SIMPLE CALCULATOR</title>
     </head>
     <body>
