@@ -3,7 +3,7 @@
     "name": "Tronculator",
     "icons": [
         {
-            "src": "/assets/calculator.png",
+            "src": "./assets/calculator.png",
             "sizes": "192x192",
             "type": "image/png"
         }
@@ -11,5 +11,5 @@
     "start_url": "/calculator/index.html",
     "background_color": "#e05a47",
     "theme_color": "#e05a47",
-    "display": "standalone"
+    "display": "fullscreen"
 }
